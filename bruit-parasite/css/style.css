@@ -38,17 +38,17 @@ section { padding: min(14vh, 7rem) 5vw; }
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(circle at 82% 18%, rgba(214,106,143,.16), transparent 38%),
-    radial-gradient(circle at 15% 110%, rgba(17,16,21,.9), rgba(17,16,21,0) 48%),
-    linear-gradient(90deg, rgba(17,16,21,.94) 0%, rgba(17,16,21,.74) 42%, rgba(17,16,21,.38) 100%),
-    linear-gradient(180deg, rgba(17,16,21,.12) 0%, rgba(17,16,21,.86) 100%),
+    radial-gradient(circle at 82% 18%, rgba(214,106,143,.22), transparent 42%),
+    radial-gradient(circle at 15% 110%, rgba(17,16,21,.72), rgba(17,16,21,0) 56%),
+    linear-gradient(90deg, rgba(17,16,21,.82) 0%, rgba(17,16,21,.56) 42%, rgba(17,16,21,.2) 100%),
+    linear-gradient(180deg, rgba(17,16,21,.06) 0%, rgba(17,16,21,.58) 100%),
     url("../../assets/images/hero-stage.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
-.hero::before{content:""; position:absolute; inset:0; pointer-events:none; background:radial-gradient(circle at 50% 40%, transparent 40%, rgba(17,16,21,.48) 100%);}
-.hero::after{content:""; position:absolute; inset:0; pointer-events:none; background:linear-gradient(115deg, rgba(17,16,21,.08), rgba(17,16,21,.7) 62%, rgba(17,16,21,.9));}
+.hero::before{content:""; position:absolute; inset:0; pointer-events:none; background:radial-gradient(circle at 52% 38%, transparent 44%, rgba(17,16,21,.32) 100%);}
+.hero::after{content:""; position:absolute; inset:0; pointer-events:none; background:linear-gradient(115deg, rgba(17,16,21,.03), rgba(17,16,21,.48) 62%, rgba(17,16,21,.72));}
 .hero-content {
   position:relative;
   z-index:2;
