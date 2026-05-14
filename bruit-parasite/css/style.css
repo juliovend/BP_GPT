@@ -159,10 +159,9 @@ h3 {
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(circle at 82% 18%, rgba(214, 106, 143, 0.22), transparent 42%),
-    linear-gradient(90deg, rgba(17, 16, 21, 0.86) 0%, rgba(17, 16, 21, 0.5) 48%, rgba(17, 16, 21, 0.18) 100%),
-    linear-gradient(180deg, rgba(17, 16, 21, 0.05) 0%, rgba(17, 16, 21, 0.62) 100%),
-    url("../assets/images/hero-stage.png");
+    radial-gradient(circle at 20% 20%, rgba(182, 255, 59, 0.16), transparent 36%),
+    radial-gradient(circle at 82% 18%, rgba(214, 106, 143, 0.18), transparent 42%),
+    linear-gradient(90deg, rgba(17, 16, 21, 0.92) 0%, rgba(17, 16, 21, 0.72) 52%, rgba(17, 16, 21, 0.84) 100%);
   background-size: cover;
   background-position: center;
 }
@@ -181,6 +180,11 @@ h3 {
   position: relative;
   z-index: 2;
   width: min(760px, 100%);
+  padding: clamp(1.6rem, 3vw, 2.8rem);
+  border: 1px solid rgba(241, 235, 221, 0.16);
+  border-radius: 2rem;
+  background: linear-gradient(130deg, rgba(22, 21, 29, 0.86), rgba(14, 13, 21, 0.76));
+  backdrop-filter: blur(2px);
 }
 
 .hero-labels { display:flex; flex-wrap:wrap; gap:.5rem .9rem; margin-bottom: 1rem; }
@@ -222,6 +226,14 @@ blockquote { margin:0; font:700 clamp(1.4rem,3vw,2.4rem)/1.2 Space Grotesk, Aria
 ========================= */
 .team-grid { display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:1.2rem; }
 .team-card__image { min-height:270px; margin:-1.2rem -1.2rem 1rem; }
+.team-card__image {
+  aspect-ratio: 9 / 12;
+}
+.team-card__image img {
+  height: 100%;
+  width: 100%;
+  object-position: center top;
+}
 
 /* =========================
    Contact
