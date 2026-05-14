@@ -42,7 +42,7 @@ section { padding: min(14vh, 7rem) 5vw; }
     radial-gradient(circle at 15% 110%, rgba(17,16,21,.72), rgba(17,16,21,0) 56%),
     linear-gradient(90deg, rgba(17,16,21,.82) 0%, rgba(17,16,21,.56) 42%, rgba(17,16,21,.2) 100%),
     linear-gradient(180deg, rgba(17,16,21,.06) 0%, rgba(17,16,21,.58) 100%),
-    url("../../assets/images/hero-stage.png");
+    url("/assets/images/hero-stage.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
