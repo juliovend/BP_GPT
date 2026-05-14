@@ -20,14 +20,28 @@ bruit-parasite/
 1. Ouvrez le dossier `bruit-parasite`.
 2. Double-cliquez sur `index.html` dans un navigateur.
 
-## 4) Comment remplacer les images
-Placez vos images dans `assets/images/` avec ces noms :
-- `hero-stage.jpg`
-- `spectacle-1.jpg`, `spectacle-2.jpg`, `spectacle-3.jpg`
-- `atelier-1.jpg`, `atelier-2.jpg`, `atelier-3.jpg` (facultatif dans cette version)
-- `equipe-1.jpg` à `equipe-5.jpg`
+## Images du site
+Placez les images du site dans `assets/images/` avec les noms suivants :
+- `hero-stage.png`
+- `spectacle-1.png`
+- `spectacle-2.png`
+- `spectacle-3.png`
+- `atelier-1.png`
+- `atelier-2.png`
+- `atelier-3.png`
+- `equipe-1.png`
+- `equipe-2.png`
+- `equipe-3.png`
 
-Le site reste lisible même sans images grâce aux placeholders CSS.
+Pour remplacer une image, conservez exactement le même nom de fichier et remplacez simplement le fichier dans `assets/images/`.
+
+Formats recommandés :
+- hero : format horizontal large, idéalement 16:9
+- spectacles : format portrait/vertical, idéalement 4:5
+- ateliers : format portrait/vertical, idéalement 4:5
+- équipe : portraits verticaux, idéalement 4:5
+
+Le site reste lisible même si une image est absente grâce aux fonds de secours et placeholders.
 
 ## 5) Comment modifier les textes
 Tous les textes du site sont directement dans `index.html` :
