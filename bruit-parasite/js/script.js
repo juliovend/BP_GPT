@@ -41,7 +41,7 @@ if (here === 'index.html' || here === '') {
   if (!reducedMotion) document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   else document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
 } else {
-  if (!reducedMotion) document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+  document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
 }
 
 const form = document.querySelector('#contact-form');
