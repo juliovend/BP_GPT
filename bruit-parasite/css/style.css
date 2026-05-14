@@ -211,6 +211,10 @@ blockquote { margin:0; font:700 clamp(1.4rem,3vw,2.4rem)/1.2 Space Grotesk, Aria
 .cards-ateliers { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .card,.atelier,.member,.collection-card { border:1px solid var(--color-border); background: var(--color-panel); transition:.28s; }
 .card-media,.spectacle-card__image,.atelier-card__image,.team-card__image { min-height:220px; position:relative; overflow:hidden; }
+.spectacle-card__image {
+  min-height: 0;
+  aspect-ratio: 4 / 3;
+}
 .atelier-card__image { min-height:240px; margin-bottom: 1rem; }
 .card-content,.atelier,.member { padding:1.2rem; }
 .spectacle-card__image::after,.atelier-card__image::after,.team-card__image::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(25,24,32,.06), rgba(17,16,21,.48)); }
