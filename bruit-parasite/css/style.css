@@ -27,7 +27,11 @@ html {
 body {
   margin: 0;
   color: var(--color-ivory);
-  background: var(--color-black);
+  background-color: var(--color-black);
+  background-image: linear-gradient(rgba(17, 16, 21, 0.82), rgba(17, 16, 21, 0.82)), url("../../assets/images/hero-stage.png");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
   font: 400 1rem/1.65 Manrope, Arial, sans-serif;
 }
 
