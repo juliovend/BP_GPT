@@ -66,21 +66,24 @@ form?.addEventListener('submit', (e) => {
 });
 
 
-// Make spectacle cards clickable on the whole surface
-const spectacleCards = document.querySelectorAll('.spectacle-card--link[data-href]');
-spectacleCards.forEach((card) => {
+// Make spectacle and atelier cards clickable on the whole surface
+const linkedCards = document.querySelectorAll('.spectacle-card--link[data-href], .atelier-card--link[data-href]');
+linkedCards.forEach((card) => {
   const href = card.getAttribute('data-href');
   if (!href) return;
 
   const destination = new URL(href, window.location.href).toString();
+  const isAtelierCard = card.classList.contains('atelier-card--link');
+  const linkClass = isAtelierCard ? 'atelier-card__direct-link' : 'spectacle-card__direct-link';
+  const linkText = isAtelierCard ? 'Voir la fiche détaillée de l’atelier' : 'Voir la fiche détaillée du spectacle';
+
   card.style.cursor = 'pointer';
 
-  // Progressive enhancement: add a real anchor for direct opening (new tab, long press, etc.)
-  if (!card.querySelector('.spectacle-card__direct-link')) {
+  if (!card.querySelector(`.${linkClass}`)) {
     const directLink = document.createElement('a');
-    directLink.className = 'spectacle-card__direct-link sr-only';
+    directLink.className = `${linkClass} sr-only`;
     directLink.href = destination;
-    directLink.textContent = 'Voir la fiche détaillée du spectacle';
+    directLink.textContent = linkText;
     card.append(directLink);
   }
 
