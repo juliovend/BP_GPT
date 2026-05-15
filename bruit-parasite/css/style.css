@@ -354,3 +354,26 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible 
 .quote-block blockquote { border-left-color: var(--color-accent); max-width: 820px; }
 
 @media (max-width: 900px){ .show-info-grid,.show-dist,.show-gallery{grid-template-columns:1fr;} .show-gallery img:first-child{min-height:280px; grid-row:auto;} }
+
+
+/* Clickable spectacle cards */
+.spectacle-card--link { cursor: pointer; }
+.spectacle-card--link:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
+
+/* Team portraits fix */
+.team-card__image img { object-fit: cover; object-position: center top; }
+
+/* Spectacles page visibility/layout hardening */
+.spectacles-page .collection-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 900px) { .spectacles-page .collection-grid { grid-template-columns: 1fr; } }
+
+/* Ateliers page: smaller cards, one atelier per screen-ish */
+.ateliers-page .collection-grid { grid-template-columns: 1fr; gap: 1rem; }
+.ateliers-page .collection-card { display: grid; grid-template-columns: 34% 1fr; gap: 1rem; align-items: start; max-height: min(88vh, 760px); overflow: hidden; padding: 1rem; }
+.ateliers-page .atelier-card__image { min-height: 0; height: 100%; margin: 0; }
+.ateliers-page .atelier-card__image img { height: 100%; }
+.ateliers-page .collection-card > :not(.atelier-card__image) { margin: .2rem 0; }
+@media (max-width: 900px) {
+  .ateliers-page .collection-card { grid-template-columns: 1fr; max-height: none; }
+  .ateliers-page .atelier-card__image { aspect-ratio: 16 / 9; }
+}
