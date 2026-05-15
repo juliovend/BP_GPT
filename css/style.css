@@ -28,7 +28,7 @@ body {
   margin: 0;
   color: var(--color-ivory);
   background-color: var(--color-black);
-  background-image: linear-gradient(rgba(17, 16, 21, 0.82), rgba(17, 16, 21, 0.82)), url("../../assets/images/hero-stage.png");
+  background-image: linear-gradient(rgba(17, 16, 21, 0.82), rgba(17, 16, 21, 0.82)), url("../assets/images/hero-stage.png");
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -173,7 +173,7 @@ h3 {
   position: absolute;
   inset: 0;
   z-index: 0;
-  background-image: url("../../assets/images/hero-stage.png");
+  background-image: url("../assets/images/hero-stage.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
