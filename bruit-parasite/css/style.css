@@ -232,14 +232,13 @@ blockquote { margin:0; font:700 clamp(1.4rem,3vw,2.4rem)/1.2 Space Grotesk, Aria
 .team-grid { display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:1.2rem; }
 .team-card__image {
   min-height: 220px;
-  max-height: 320px;
   margin: -1.2rem -1.2rem 1rem;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 3 / 4;
 }
 .team-card__image img {
   height: 100%;
   width: 100%;
-  object-position: center 18%;
+  object-position: center top;
 }
 
 /* =========================
