@@ -157,27 +157,25 @@ h3 {
    Hero
 ========================= */
 .hero {
-  min-height: 100vh;
-  margin-top: calc(-1 * var(--header-height));
+  min-height: max(85vh, 700px);
+  margin-top: 0;
   padding: 0;
   display: flex;
   align-items: stretch;
   position: relative;
   overflow: hidden;
-  background-image: url("../../assets/images/hero-stage.png");
-  background-size: cover;
-  background-position: center;
+  isolation: isolate;
+  background: #111015;
 }
 
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  pointer-events: none;
-  background:
-    linear-gradient(100deg, rgba(14, 13, 19, 0.86) 0%, rgba(14, 13, 19, 0.54) 35%, rgba(14, 13, 19, 0.1) 70%),
-    linear-gradient(0deg, rgba(14, 13, 19, 0.72) 0%, rgba(14, 13, 19, 0.08) 44%, rgba(14, 13, 19, 0.22) 100%),
-    radial-gradient(circle at 18% 24%, rgba(182, 255, 59, 0.14), transparent 44%);
+  z-index: 0;
+  background: url("../../assets/images/hero-stage.png") center 36% / cover no-repeat;
+  transform: scale(1.03);
+  animation: heroImageIn 1.8s ease-out both;
 }
 
 .hero::after {
@@ -185,25 +183,35 @@ h3 {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(114deg, rgba(241, 235, 221, 0) 0%, rgba(241, 235, 221, 0.08) 1%, transparent 3%);
+  z-index: 1;
+  background:
+    linear-gradient(to right, rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.45) 43%, rgba(0, 0, 0, 0.08) 78%),
+    linear-gradient(to top, rgba(0, 0, 0, 0.76) 0%, rgba(0, 0, 0, 0.22) 56%, rgba(0, 0, 0, 0.38) 100%),
+    linear-gradient(0deg, rgba(17, 16, 21, 0.26), rgba(17, 16, 21, 0.26));
 }
 
 .hero-content {
   position: absolute;
   z-index: 2;
-  left: 5vw;
-  bottom: clamp(2.5rem, 7vh, 5.2rem);
-  width: min(860px, calc(100% - 10vw));
+  left: 8vw;
+  bottom: clamp(2.6rem, 9vh, 6rem);
+  width: min(900px, calc(100% - 16vw));
 }
 
 .hero-labels { display:flex; flex-wrap:wrap; gap:.5rem .9rem; margin-bottom: 1rem; }
 .hero .tagline { color: var(--color-accent); font-weight:600; }
-h1 span { display:block; font-size: clamp(2.7rem, 10.5vw, 9rem); line-height: .92; }
+.hero h1 span { display:block; font-size: clamp(4rem, 10vw, 10rem); line-height: .86; letter-spacing: .01em; }
 .btn-row { display:flex; flex-wrap:wrap; gap:.8rem; margin-top:1.4rem; }
 .hero h1,
 .hero p,
-.hero .label { text-shadow: 0 4px 24px rgba(0, 0, 0, 0.42); }
+.hero .label,
+.hero .btn { text-shadow: 0 4px 24px rgba(0, 0, 0, 0.45); }
 .hero p:not(.tagline) { max-width: 62ch; }
+.hero .label { color: rgba(241, 235, 221, 0.82); }
+.hero .btn { border-color: rgba(241, 235, 221, 0.82); background: rgba(241, 235, 221, 0.04); }
+.hero .btn:hover { background: var(--color-ivory); color: var(--color-black); transform: translateY(-2px) translateX(2px); }
+.hero .btn span { transition: transform .25s ease; }
+.hero .btn:hover span { transform: translateX(3px); }
 
 /* =========================
    Sections
@@ -288,18 +296,20 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible 
 }
 
 @media (max-width: 760px) {
-  .hero::before {
+  .hero { min-height: 85vh; }
+  .hero::before { background-position: 58% 34%; }
+  .hero::after {
     background:
-      linear-gradient(100deg, rgba(14, 13, 19, 0.88) 0%, rgba(14, 13, 19, 0.68) 44%, rgba(14, 13, 19, 0.3) 100%),
-      linear-gradient(0deg, rgba(14, 13, 19, 0.84) 0%, rgba(14, 13, 19, 0.12) 52%, rgba(14, 13, 19, 0.28) 100%);
+      linear-gradient(to right, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.68) 58%, rgba(0, 0, 0, 0.28) 100%),
+      linear-gradient(to top, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.3) 54%, rgba(0, 0, 0, 0.46) 100%);
   }
   .hero-content {
     left: 6vw;
-    bottom: 2.2rem;
+    bottom: 2rem;
     width: min(92vw, 860px);
   }
   .hero-labels { margin-bottom: .8rem; }
-  h1 span { font-size: clamp(2.5rem, 16vw, 4.7rem); }
+  .hero h1 span { font-size: clamp(2.8rem, 16vw, 5.1rem); }
   .btn-row { flex-direction: column; align-items: flex-start; }
   .main-nav { display:none; }
   .burger { display:flex; flex-direction:column; gap:5px; background:none; border:0; }
@@ -313,4 +323,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible 
 
 @media (prefers-reduced-motion: reduce) {
   *,*::before,*::after { animation:none !important; transition:none !important; scroll-behavior:auto !important; }
+}
+
+@keyframes heroImageIn {
+  from { transform: scale(1.08); filter: saturate(0.88) brightness(0.82); }
+  to { transform: scale(1.03); filter: saturate(1) brightness(1); }
 }
