@@ -332,3 +332,25 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible 
   from { transform: scale(1.08); filter: saturate(0.88) brightness(0.82); }
   to { transform: scale(1.03); filter: saturate(1) brightness(1); }
 }
+
+.btn-detail { border-color: var(--color-border); background: transparent; }
+.btn-detail:hover { transform: translateX(3px) translateY(-2px); background: var(--color-ivory); color: var(--color-black); }
+.btn-detail span { transition: transform .25s ease; }
+.btn-detail:hover span { transform: translateX(3px); }
+
+.show-hero { min-height: 78vh; display:flex; align-items:flex-end; position:relative; overflow:hidden; isolation:isolate; background:#0f0e14; }
+.show-hero::before { content:""; position:absolute; inset:0; background-image: var(--show-bg); background-size:cover; background-position:center; filter:grayscale(90%) contrast(1.2); transform:scale(1.04); }
+.show-hero::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(9,9,12,.35), rgba(9,9,12,.88)); }
+.show-hero__content { position:relative; z-index:2; padding: clamp(7rem, 11vw, 10rem) 5vw 4rem; max-width: 900px; }
+.show-hero h1 { font-size: clamp(2.5rem, 8vw, 7rem); }
+.show-kicker { color: var(--color-accent); font-weight: 600; }
+.show-info-grid, .show-dist { display:grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .75rem 2rem; border-top:1px solid var(--color-border); padding-top:1rem; }
+.show-info-grid p, .show-dist p { margin:0; padding:.6rem 0; border-bottom:1px solid rgba(52,47,62,.6); }
+.show-info-grid span, .show-dist span { display:block; font:500 .74rem/1.2 IBM Plex Mono, monospace; color:var(--color-muted); letter-spacing:.08em; text-transform:uppercase; margin-bottom:.3rem; }
+.show-gallery { display:grid; grid-template-columns: 1.3fr 1fr; gap: 1rem; }
+.show-gallery img:first-child { grid-row: span 2; min-height: 460px; }
+.show-gallery img { min-height: 220px; transition: transform .35s ease, filter .35s ease; }
+.show-gallery img:hover { transform: translateY(-3px); filter: grayscale(60%) contrast(1.18); }
+.quote-block blockquote { border-left-color: var(--color-accent); max-width: 820px; }
+
+@media (max-width: 900px){ .show-info-grid,.show-dist,.show-gallery{grid-template-columns:1fr;} .show-gallery img:first-child{min-height:280px; grid-row:auto;} }
