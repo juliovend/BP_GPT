@@ -64,3 +64,25 @@ form?.addEventListener('submit', (e) => {
   window.location.href = `mailto:contact@bruitparasite.fr?subject=${subject}&body=${body}`;
   if (feedback) feedback.textContent = 'Le bouton ouvre votre client email ; aucun envoi n’est simulé sur le site.';
 });
+
+
+// Make spectacle cards clickable on the whole surface
+document.querySelectorAll('.spectacle-card--link[data-href]').forEach((card) => {
+  const openCard = () => {
+    const href = card.getAttribute('data-href');
+    if (href) window.location.href = href;
+  };
+
+  card.addEventListener('click', (event) => {
+    const target = event.target;
+    if (target instanceof Element && target.closest('a, button')) return;
+    openCard();
+  });
+
+  card.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      openCard();
+    }
+  });
+});
