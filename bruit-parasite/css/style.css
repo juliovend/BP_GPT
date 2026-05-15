@@ -155,15 +155,12 @@ h3 {
 .hero {
   min-height: 100vh;
   margin-top: calc(-1 * var(--header-height));
-  padding: calc(clamp(7rem, 11vh, 9rem) + var(--header-height)) 5vw clamp(3rem, 7vh, 5rem);
+  padding: 0;
   display: flex;
-  align-items: flex-end;
+  align-items: stretch;
   position: relative;
   overflow: hidden;
-  background-image:
-    radial-gradient(circle at 18% 24%, rgba(182, 255, 59, 0.15), transparent 40%),
-    linear-gradient(103deg, rgba(17, 16, 21, 0.42) 0%, rgba(17, 16, 21, 0.18) 50%, rgba(17, 16, 21, 0.62) 100%),
-    url("../../assets/images/hero-stage.png");
+  background-image: url("../../assets/images/hero-stage.png");
   background-size: cover;
   background-position: center;
 }
@@ -174,25 +171,35 @@ h3 {
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(114deg, rgba(241, 235, 221, 0) 0%, rgba(241, 235, 221, 0.08) 1%, transparent 3%),
-    linear-gradient(178deg, rgba(182, 255, 59, 0.14), transparent 36%);
+    linear-gradient(100deg, rgba(14, 13, 19, 0.86) 0%, rgba(14, 13, 19, 0.54) 35%, rgba(14, 13, 19, 0.1) 70%),
+    linear-gradient(0deg, rgba(14, 13, 19, 0.72) 0%, rgba(14, 13, 19, 0.08) 44%, rgba(14, 13, 19, 0.22) 100%),
+    radial-gradient(circle at 18% 24%, rgba(182, 255, 59, 0.14), transparent 44%);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(114deg, rgba(241, 235, 221, 0) 0%, rgba(241, 235, 221, 0.08) 1%, transparent 3%);
 }
 
 .hero-content {
-  position: relative;
+  position: absolute;
   z-index: 2;
-  width: min(820px, 100%);
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
-  backdrop-filter: none;
+  left: 5vw;
+  bottom: clamp(2.5rem, 7vh, 5.2rem);
+  width: min(860px, calc(100% - 10vw));
 }
 
 .hero-labels { display:flex; flex-wrap:wrap; gap:.5rem .9rem; margin-bottom: 1rem; }
 .hero .tagline { color: var(--color-accent); font-weight:600; }
 h1 span { display:block; font-size: clamp(2.7rem, 10.5vw, 9rem); line-height: .92; }
 .btn-row { display:flex; flex-wrap:wrap; gap:.8rem; margin-top:1.4rem; }
+.hero h1,
+.hero p,
+.hero .label { text-shadow: 0 4px 24px rgba(0, 0, 0, 0.42); }
+.hero p:not(.tagline) { max-width: 62ch; }
 
 /* =========================
    Sections
@@ -254,7 +261,7 @@ input,textarea { width:100%; margin-top:.35rem; padding:.8rem; background:#14131
    Footer / Utilities
 ========================= */
 .btn { display:inline-flex; align-items:center; gap:.6rem; border:1px solid var(--color-ivory); padding:.8rem 1rem; font-weight:500; transition:.25s; }
-.btn:hover { background: var(--color-ivory); color: var(--color-black); }
+.btn:hover { background: var(--color-ivory); color: var(--color-black); transform: translateY(-2px); }
 a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible { outline:2px solid var(--color-accent); outline-offset:2px; }
 .reveal { opacity:0; transform:translateY(20px); transition:.8s ease; }
 .reveal.visible { opacity:1; transform:none; }
@@ -277,6 +284,19 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible 
 }
 
 @media (max-width: 760px) {
+  .hero::before {
+    background:
+      linear-gradient(100deg, rgba(14, 13, 19, 0.88) 0%, rgba(14, 13, 19, 0.68) 44%, rgba(14, 13, 19, 0.3) 100%),
+      linear-gradient(0deg, rgba(14, 13, 19, 0.84) 0%, rgba(14, 13, 19, 0.12) 52%, rgba(14, 13, 19, 0.28) 100%);
+  }
+  .hero-content {
+    left: 6vw;
+    bottom: 2.2rem;
+    width: min(92vw, 860px);
+  }
+  .hero-labels { margin-bottom: .8rem; }
+  h1 span { font-size: clamp(2.5rem, 16vw, 4.7rem); }
+  .btn-row { flex-direction: column; align-items: flex-start; }
   .main-nav { display:none; }
   .burger { display:flex; flex-direction:column; gap:5px; background:none; border:0; }
   .burger span { display:block; width:26px; height:1px; background:var(--color-ivory); }
