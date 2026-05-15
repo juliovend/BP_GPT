@@ -293,10 +293,22 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible 
 .placeholder-media { min-height:220px; display:flex; align-items:flex-end; padding:1rem; background: radial-gradient(circle at 18% 10%, rgba(214,106,143,.2), transparent 48%), linear-gradient(145deg,#181720,#221f2b); border-bottom:1px solid var(--color-border); }
 
 
-/* Reduce gap under back link on listing pages */
+/* Listing pages: keep editorial hero while pulling grids higher */
 .spectacles-page .page-hero,
 .ateliers-page .page-hero {
-  padding-bottom: clamp(1.6rem, 4vw, 2.8rem);
+  padding-top: clamp(7rem, 10vw, 8.5rem);
+  padding-bottom: clamp(1.6rem, 3.8vw, 2.6rem);
+}
+
+.spectacles-page .page-hero + .section,
+.ateliers-page .page-hero + .section {
+  padding-top: clamp(2rem, 5vw, 4rem);
+}
+
+.spectacles-page .page-hero .inline-link,
+.ateliers-page .page-hero .inline-link {
+  display: inline-block;
+  margin-bottom: 0;
 }
 
 @media (max-width: 1024px) {
