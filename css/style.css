@@ -157,6 +157,8 @@ h3 {
    Hero
 ========================= */
 .hero {
+  height: 100vh;
+  height: 100dvh;
   min-height: 100vh;
   min-height: 100dvh;
   margin-top: 0;
@@ -319,7 +321,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible 
 }
 
 @media (max-width: 760px) {
-  .hero { min-height: 100svh; }
+  .hero { height: 100svh; min-height: 100svh; }
   .hero::before { background-position: 58% 34%; }
   .hero::after {
     background:
