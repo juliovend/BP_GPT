@@ -173,7 +173,10 @@ h3 {
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: url("../../assets/images/hero-stage.png") center 36% / cover no-repeat;
+  background-image: url("../../assets/images/hero-stage.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   transform: scale(1.03);
   animation: heroImageIn 1.8s ease-out both;
 }
