@@ -292,6 +292,13 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible 
 .page-cta { border:1px solid var(--color-border); padding:clamp(1.5rem,3vw,3rem); background: var(--color-charcoal); max-width:920px; }
 .placeholder-media { min-height:220px; display:flex; align-items:flex-end; padding:1rem; background: radial-gradient(circle at 18% 10%, rgba(214,106,143,.2), transparent 48%), linear-gradient(145deg,#181720,#221f2b); border-bottom:1px solid var(--color-border); }
 
+
+/* Reduce gap under back link on listing pages */
+.spectacles-page .page-hero,
+.ateliers-page .page-hero {
+  padding-bottom: clamp(1.6rem, 4vw, 2.8rem);
+}
+
 @media (max-width: 1024px) {
   .manifeste-grid,.contact-grid { grid-template-columns:1fr; }
   .cards-ateliers,.collection-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
