@@ -10,6 +10,7 @@
   --color-accent: #b6ff3b;
   --color-accent-secondary: #d66a8f;
   --color-panel: #17151e;
+  --header-height: 84px;
 }
 
 /* =========================
@@ -153,7 +154,8 @@ h3 {
 ========================= */
 .hero {
   min-height: 100vh;
-  padding: clamp(7rem, 11vh, 9rem) 5vw clamp(3rem, 7vh, 5rem);
+  margin-top: calc(-1 * var(--header-height));
+  padding: calc(clamp(7rem, 11vh, 9rem) + var(--header-height)) 5vw clamp(3rem, 7vh, 5rem);
   display: flex;
   align-items: flex-end;
   position: relative;
