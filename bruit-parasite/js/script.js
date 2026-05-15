@@ -67,11 +67,24 @@ form?.addEventListener('submit', (e) => {
 
 
 // Make spectacle cards clickable on the whole surface
-document.querySelectorAll('.spectacle-card--link[data-href]').forEach((card) => {
-  const openCard = () => {
-    const href = card.getAttribute('data-href');
-    if (href) window.location.href = href;
-  };
+const spectacleCards = document.querySelectorAll('.spectacle-card--link[data-href]');
+spectacleCards.forEach((card) => {
+  const href = card.getAttribute('data-href');
+  if (!href) return;
+
+  const destination = new URL(href, window.location.href).toString();
+  card.style.cursor = 'pointer';
+
+  // Progressive enhancement: add a real anchor for direct opening (new tab, long press, etc.)
+  if (!card.querySelector('.spectacle-card__direct-link')) {
+    const directLink = document.createElement('a');
+    directLink.className = 'spectacle-card__direct-link sr-only';
+    directLink.href = destination;
+    directLink.textContent = 'Voir la fiche détaillée du spectacle';
+    card.append(directLink);
+  }
+
+  const openCard = () => window.location.assign(destination);
 
   card.addEventListener('click', (event) => {
     const target = event.target;
