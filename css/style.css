@@ -368,19 +368,39 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible 
 .spectacles-page .collection-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 @media (max-width: 900px) { .spectacles-page .collection-grid { grid-template-columns: 1fr; } }
 
-/* Ateliers page: compact workshop cards */
+/* Ateliers page: readable workshop cards */
 .ateliers-page .collection-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
-.ateliers-page .collection-card { display: grid; grid-template-columns: 1fr; gap: .75rem; padding: .85rem; }
-.ateliers-page .atelier-card__image { min-height: 0; margin: 0; aspect-ratio: 16 / 10; }
+.ateliers-page .collection-card { padding: 1.1rem; }
+.ateliers-page .atelier-card__image { margin-bottom: .6rem; aspect-ratio: 16 / 10; min-height: 0; }
 .ateliers-page .atelier-card__image img { height: 100%; }
-.ateliers-page .collection-card > :not(.atelier-card__image) { margin: .1rem 0; }
-.ateliers-page .collection-card h3 { font-size: clamp(1.2rem, 2vw, 1.45rem); }
-.ateliers-page .collection-card p { font-size: .95rem; line-height: 1.45; }
+.ateliers-page .collection-card h3 { font-size: clamp(1.25rem, 2vw, 1.55rem); }
+.ateliers-page .collection-card p { line-height: 1.55; }
 @media (max-width: 900px) {
   .ateliers-page .collection-grid { grid-template-columns: 1fr; }
 }
 
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+
+/* Visible direct links for clickable cards */
+.atelier-card__direct-link,
+.spectacle-card__direct-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  margin-top: .35rem;
+  font-family: IBM Plex Mono, monospace;
+  font-size: .78rem;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--color-accent);
+}
+.atelier-card__direct-link::after,
+.spectacle-card__direct-link::after { content: "→"; transition: transform .25s ease; }
+.atelier-card__direct-link:hover::after,
+.atelier-card__direct-link:focus-visible::after,
+.spectacle-card__direct-link:hover::after,
+.spectacle-card__direct-link:focus-visible::after { transform: translateX(3px); }
 
 /* Atelier detail pages */
 .atelier-detail-page .atelier-hero {
