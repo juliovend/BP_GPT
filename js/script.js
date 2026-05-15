@@ -81,7 +81,7 @@ linkedCards.forEach((card) => {
 
   if (!card.querySelector(`.${linkClass}`)) {
     const directLink = document.createElement('a');
-    directLink.className = `${linkClass} sr-only`;
+    directLink.className = linkClass;
     directLink.href = destination;
     directLink.textContent = linkText;
     card.append(directLink);
